@@ -1,0 +1,36 @@
+"""
+You were hired to create words for a new language. However, your boss wants these words to follow a 
+strict pattern of consonants and vowels. You are bad at creating words by yourself, so you decide it
+would be best to randomly generate them. Your task is to create a program that generates a random word 
+given a pattern of consonants (c) and vowels (v).
+
+INPUT
+Any string of the letters c and v, uppercase or lowercase.
+
+OUTPUT
+A random lowercase string of letters in which consonants (bcdfghjklmnpqrstvwxyz) occupy the given 'c' 
+indices and vowels (aeiou) occupy the given 'v' indices.
+"""
+
+
+import string
+import random
+
+consonants = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'
+vowels = 'aeiouAEIOU'
+
+word = input("Enter a word with c and v letters: ")
+
+array = list(word)
+
+#print(array)
+for i in range(len(word)):
+	if array[i] == 'c':
+		array[i] = random.choice(consonants)
+	elif array[i] == 'v':
+		array[i] = random.choice(vowels)
+	else:
+		array.pop(i)
+		i -= 1
+#print(array)
+print(''.join(array))
